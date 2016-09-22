@@ -22,10 +22,7 @@ class Tic_Tac_Toe(object):
         
     def is_legal(self, action):
         """Is this action legal?"""
-        if self.state[action] == 0:
-            return True
-        else:
-            return False
+        return self.state[action] == 0
         
     def step(self, action, display=False):
         if self.player:
@@ -61,7 +58,7 @@ class Tic_Tac_Toe(object):
             return True
         else:
             return False
-        
+
         # if game is tied
         if len(list(filter(self.state, lambda pos: pos > 0))) == 9:
             return True
