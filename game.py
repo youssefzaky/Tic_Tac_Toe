@@ -13,6 +13,9 @@ class Tic_Tac_Toe(object):
         else:
             self.reset()
 
+        self.action_dim = 9
+        self.ob_dim = 10
+
     def print_board(self):
         """Convert from list to 'XO' representation and print board."""
 
@@ -53,13 +56,13 @@ class Tic_Tac_Toe(object):
         if display:
             self.print_board()
 
-        return self.state, reward, done
+        return self.state.copy(), reward, done
 
     def reset(self):
         self.state[-1] = int(np.random.randn() > 0.5)
         # clear board
         self.state[:9] = [0] * 9
-        return self.state
+        return self.state.copy()
 
     def is_winner(self):
         """Figure out if someone won or game is tied"""
