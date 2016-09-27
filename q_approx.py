@@ -163,7 +163,7 @@ if __name__ == "__main__":
     from game import Tic_Tac_Toe, Human
     env = Tic_Tac_Toe()
     agent = Q_Approx(env, batch_size=200, learning_rate=0.0001,
-                     epsilon=0.3, n_hidden1=30, n_hidden2=10)
-    agent.learn(500)
+                     epsilon=0.1, n_hidden1=50, n_hidden2=20)
+    agent.learn(1000)
     while True:
         env.episode(agent, Human(), display=True)
